@@ -26,7 +26,10 @@ export function Footer({}: FooterProps): ReactElement {
           </a>
         </div>
 
-        <div className="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24">
+        <div className="mt-10">
+          <Separator className="" />
+        </div>
+        <div className="mt-16  sm:flex sm:items-center sm:justify-between ">
           <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
             <li>
               <a href="#" className="text-gray-500 transition hover:opacity-75">

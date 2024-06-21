@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/providers/ThemeToggle";
 import Link from "next/link";
 
@@ -13,7 +14,7 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <nav className="bg-white dark:bg-[#020817] border-b border-gray-200 fixed z-30 w-full">
+      <nav className="bg-white dark:bg-[#020817]  fixed z-30 w-full">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start">
@@ -84,10 +85,12 @@ export default function DashboardLayout({
                     strokeWidth="16"
                   ></line>
                 </svg>
-                <span className="uppercase self-center whitespace-nowrap ml-2 text-black dark:text-white">
-                  {" "}
-                  Picturify
-                </span>
+                <Link href="/">
+                  <span className="uppercase self-center whitespace-nowrap ml-2 text-black dark:text-white">
+                    {" "}
+                    Picturify
+                  </span>
+                </Link>
               </a>
             </div>
             <div className="flex items-center">
@@ -101,6 +104,7 @@ export default function DashboardLayout({
             </div>
           </div>
         </div>
+        <Separator orientation="horizontal" />
       </nav>
       <div className="flex overflow-hidden bg-white dark:bg-[#020817] pt-16">
         <aside
