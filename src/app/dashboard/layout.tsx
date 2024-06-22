@@ -51,8 +51,8 @@ export default function DashboardLayout({
                   ></path>
                 </svg>
               </button>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="text-xl font-bold flex items-center lg:ml-2.5"
               >
                 {/* Logo */}
@@ -85,13 +85,11 @@ export default function DashboardLayout({
                     strokeWidth="16"
                   ></line>
                 </svg>
-                <Link href="/">
-                  <span className="uppercase self-center whitespace-nowrap ml-2 text-black dark:text-white">
-                    {" "}
-                    Picturify
-                  </span>
-                </Link>
-              </a>
+                <span className="uppercase self-center whitespace-nowrap ml-2 text-black dark:text-white">
+                  {" "}
+                  Picturify
+                </span>
+              </Link>
             </div>
             <div className="flex items-center">
               {/* User Avatar */}

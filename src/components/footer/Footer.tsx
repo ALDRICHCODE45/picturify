@@ -22,7 +22,7 @@ export function Footer({}: FooterProps): ReactElement {
             href="#"
             className="mt-8 inline-block rounded-full border border-primary px-12 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary-500"
           >
-            Get Started
+            Iniciemos
           </a>
         </div>
 

@@ -2,12 +2,13 @@ import { ModeToggle } from "@/providers/ThemeToggle";
 import Link from "next/link";
 import { type ReactElement } from "react";
 import { Separator } from "../ui/separator";
+import { Button } from "../ui/button";
 
 export interface NavbarProps {}
 
 export function Navbar({}: NavbarProps): ReactElement {
   return (
-    <header className="bg-white  dark:bg-[#020817]">
+    <header className="bg-white  dark:bg-[#111827]">
       <div className="mx-auto max-w-screen-2xl  px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
@@ -28,22 +29,23 @@ export function Navbar({}: NavbarProps): ReactElement {
 
           <div className="md:flex md:items-center md:gap-12">
             <div className="flex items-center gap-4">
+              <ModeToggle />
               <div className="sm:flex sm:gap-4">
-                <ModeToggle />
-                <a
-                  className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow"
-                  href="/auth/login"
+                <Button
+                  asChild
+                  className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow "
                 >
-                  Login
-                </a>
+                  <Link href="/auth/login">Login</Link>
+                </Button>
 
-                <div className="hidden sm:flex">
-                  <a
-                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary"
-                    href="/auth/register"
+                <div className="sm:flex">
+                  <Button
+                    asChild
+                    className="rounded-md  px-5 py-2.5 text-sm font-medium text-primary "
+                    variant="register"
                   >
-                    Register
-                  </a>
+                    <Link href="/auth/register">Register</Link>
+                  </Button>
                 </div>
               </div>
 

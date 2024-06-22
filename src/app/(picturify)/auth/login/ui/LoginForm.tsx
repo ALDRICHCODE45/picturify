@@ -38,7 +38,7 @@ export function LoginForm({}: LoginFormProps): ReactElement {
                       placeholder="correo@gmail.com"
                       type="text"
                       className="border placeholder-gray-400 focus:outline-none
-                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
+                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white
                   border-gray-300 rounded-md"
                     />
                   </div>
@@ -53,17 +53,17 @@ export function LoginForm({}: LoginFormProps): ReactElement {
                       placeholder="*****"
                       type="password"
                       className="border placeholder-gray-400 focus:outline-none
-                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
+                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white
                   border-gray-300 rounded-md"
                     />
                   </div>
                   <div className="relative">
-                    <a className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease">
+                    <a className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease cursor-pointer">
                       Submit
                     </a>
                   </div>
                 </div>
-                <p className="pt-2">
+                <p className="pt-2 dark:text-black">
                   No tienes una cuenta?{" "}
                   <Link
                     href="/auth/register"
