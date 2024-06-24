@@ -4,9 +4,9 @@ export interface TimeLineProps {}
 
 export function TimeLine({}: TimeLineProps): ReactElement {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex  items-center justify-center pb-32">
       <div className=" border-l-2 border-solid">
-        <div className="relative w-full">
+        <div className="relative w-full pb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -33,7 +33,7 @@ export function TimeLine({}: TimeLineProps): ReactElement {
           </div>
         </div>
 
-        <div className="relative w-full">
+        <div className="relative w-full pb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -61,7 +61,7 @@ export function TimeLine({}: TimeLineProps): ReactElement {
           </div>
         </div>
 
-        <div className="relative w-full">
+        <div className="relative w-full pb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

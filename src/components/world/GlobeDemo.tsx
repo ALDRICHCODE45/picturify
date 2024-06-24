@@ -410,7 +410,6 @@ export function GlobeDemo() {
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
             </div>
-            <Meteors number={20} />
           </div>
 
           {/* Segunda card */}

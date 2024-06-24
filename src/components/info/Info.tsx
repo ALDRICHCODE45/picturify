@@ -1,20 +1,17 @@
 import { type ReactElement } from "react";
+import { TextGenerateEffect } from "../text-reveal/TextReveal";
 
 export interface InfoProps {}
 
 export function Info({}: InfoProps): ReactElement {
+  const words = `La edición y creación de imágenes nunca ha sido tan fácil`;
   return (
     <section className=" py-20 ">
       <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold  text-black  dark:text-white  sm:text-4xl ">
-            La edición y creación de imágenes nunca ha sido tan fácil
+            <TextGenerateEffect words={words} />
           </h2>
-
-          <p className="mt-4 text-gray-500 sm:text-xl">
-            Revoluciona tu creatividad. Convierte tus ideas en arte espectacular
-            con la ayuda de inteligencia artificial de última generación.
-          </p>
         </div>
 
         <div className="mt-8 sm:mt-12">

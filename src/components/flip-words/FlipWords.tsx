@@ -5,7 +5,7 @@ import { cn } from "@/utils/cn";
 
 export const FlipWords = ({
   words,
-  duration = 3000,
+  duration = 1000,
   className,
 }: {
   words: string[];
@@ -73,7 +73,7 @@ export const FlipWords = ({
             }}
             className="inline-block  "
           >
-            <p className="text-black dark:text-white font-normal">{letter}</p>
+            <p className="text-primary dark:text-white font-mono">{letter}</p>
           </motion.span>
         ))}
       </motion.div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 export interface HeroProps {}
 
 export function Hero({}: HeroProps): ReactElement {
-  const words = ["creativas", "hermosas", "diferentes", "modernas"];
+  const words = ["creativas", "bonitas", "diferentes", "modernas"];
   return (
     <section className="relative w-full">
       {/* Content centered */}
