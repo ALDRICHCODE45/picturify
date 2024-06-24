@@ -1,13 +1,14 @@
 import { type ReactElement } from "react";
 import { Separator } from "../ui/separator";
+import { Meteors } from "../meteoro-effect/MeteoroEffect";
 
 export interface FooterProps {}
 
 export function Footer({}: FooterProps): ReactElement {
   return (
-    <footer className="">
+    <footer className=" bg-[#ffffff] dark:bg-[#020817]">
       <Separator />
-      <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+      <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8 lg:pt-24 ">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold  bg-gradient-to-r from-yellow-300 via-green-400 to-blue-500 bg-clip-text text-transparent sm:text-5xl ">
             Personaliza tu producto
@@ -19,7 +20,8 @@ export function Footer({}: FooterProps): ReactElement {
           </p>
 
           <a
-            href="#"
+            target="_blank"
+            href="https://www.linkedin.com/in/aldrich-flores-vazquez-446b7b223/"
             className="mt-8 inline-block rounded-full border border-primary px-12 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary-500"
           >
             Iniciemos

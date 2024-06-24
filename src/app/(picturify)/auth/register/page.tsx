@@ -1,7 +1,12 @@
 import { type ReactElement } from "react";
 import { RegisterForm } from "./ui/RegisterForm";
+import { Metadata } from "next";
 
 export interface pageProps {}
+
+export const metadata: Metadata = {
+  title: "Picturify - Register",
+};
 
 export default function page({}: pageProps): ReactElement {
   return (

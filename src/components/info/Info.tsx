@@ -4,7 +4,7 @@ export interface InfoProps {}
 
 export function Info({}: InfoProps): ReactElement {
   return (
-    <section className=" py-20">
+    <section className=" py-20 ">
       <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold  text-black  dark:text-white  sm:text-4xl ">
@@ -12,15 +12,14 @@ export function Info({}: InfoProps): ReactElement {
           </h2>
 
           <p className="mt-4 text-gray-500 sm:text-xl">
-            Transforma tus ideas en arte digital con nuestra revolucionaria app
-            de creación y edición de imágenes, potenciada por inteligencia
-            artificial.
+            Revoluciona tu creatividad. Convierte tus ideas en arte espectacular
+            con la ayuda de inteligencia artificial de última generación.
           </p>
         </div>
 
         <div className="mt-8 sm:mt-12">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-9 text-center bg-green-50 dark:bg-blue-100 dark:border-none  hover:-translate-y-1 hover:-translate-x-1 cursor-pointer transition duration-300 ease-in-out">
+            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-9 text-center bg-green-50 dark:bg-[#111827] dark:border-none  hover:-translate-y-1 hover:-translate-x-1 cursor-pointer transition duration-300 ease-in-out">
               <dt className="order-last text-lg font-medium text-gray-500">
                 Ahorra Tiempo
               </dt>
@@ -30,7 +29,7 @@ export function Info({}: InfoProps): ReactElement {
               </dd>
             </div>
 
-            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-9 text-center bg-green-50 dark:bg-blue-100 dark:border-none  hover:-translate-y-1 hover:-translate-x-1 cursor-pointer transition duration-300 ease-in-out">
+            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-9 text-center bg-green-50 dark:bg-[#111827] dark:border-none  hover:-translate-y-1 hover:-translate-x-1 cursor-pointer transition duration-300 ease-in-out">
               <dt className="order-last text-lg font-medium text-gray-500">
                 Ahorra Energia
               </dt>
@@ -40,7 +39,7 @@ export function Info({}: InfoProps): ReactElement {
               </dd>
             </div>
 
-            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-9 text-center bg-green-50 dark:bg-blue-100 dark:border-none hover:-translate-y-1 hover:-translate-x-1 cursor-pointer transition duration-300 ease-in-out">
+            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-9 text-center bg-green-50 dark:bg-[#111827] dark:border-none hover:-translate-y-1 hover:-translate-x-1 cursor-pointer transition duration-300 ease-in-out">
               <dt className="order-last text-lg font-medium text-gray-500">
                 Ahorra Dinero
               </dt>

@@ -2,7 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { BackgroundBeams } from "../background-beams/BackGroundBeams";
+import { DirectionAwareHover } from "../direction-hover/DirectionHover";
+import { Meteors } from "../meteoro-effect/MeteoroEffect";
 
 const World = dynamic(() => import("../globe/Globe").then((m) => m.World), {
   ssr: false,
@@ -400,7 +401,21 @@ export function GlobeDemo() {
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
           {/* Primera card */}
-          <div className="flex items-center justify-center h-54 rounded-lg bg-blue-50 dark:bg-[#111827]">
+
+          <div className="relative flex flex-col items-center justify-center h-44 lg:h-[40rem] rounded-lg bg-blue-50 dark:bg-[#111827]">
+            {/* Parte superior - Texto */}
+            {/* Parte inferior - Globo terráqueo */}
+            <div className="flex items-center justify-items-end w-full h-full relative">
+              <div className="absolute inset-0 flex items-center justify-center bottom-0  top-0  h-[100%]">
+                <World data={sampleArcs} globeConfig={globeConfig} />
+              </div>
+            </div>
+            <Meteors number={20} />
+          </div>
+
+          {/* Segunda card */}
+
+          <div className="relative flex items-center justify-center h-54 rounded-lg bg-blue-50 dark:bg-[#111827] ">
             <motion.div
               initial={{
                 opacity: 0,
@@ -413,21 +428,12 @@ export function GlobeDemo() {
               transition={{
                 duration: 1,
               }}
-              className="div"
-            >
-              <h2 className="text-center text-2xl md:text-6xl font-bold relative bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-transparent py-12">
-                Transforma el Mundo con Arte Digital
-              </h2>
-            </motion.div>
-            <BackgroundBeams />
-          </div>
+              className="absolute inset-0"
+            ></motion.div>
 
-          {/* Segunda card */}
-          <div className="relative flex items-center justify-center h-44 lg:h-[40rem] rounded-lg bg-blue-50 dark:bg-[#111827]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <World data={sampleArcs} globeConfig={globeConfig} />
-            </div>
-            <BackgroundBeams />
+            <DirectionAwareHover imageUrl="/girl.jpg">
+              <img src="/logoipsu.svg" alt="logo" />
+            </DirectionAwareHover>
           </div>
         </div>
       </div>

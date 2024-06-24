@@ -1,6 +1,8 @@
 import { Info } from "@/components";
+import { AccordionComponent } from "@/components/accordion/Accordion";
 import { Footer } from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
+import { TimeLine } from "@/components/timeline/TimeLine";
 import { GlobeDemo } from "@/components/world/GlobeDemo";
 import { Metadata } from "next";
 import { type ReactElement } from "react";
@@ -18,6 +20,8 @@ export default function HomePage({}: pageProps): ReactElement {
         <Hero />
         <GlobeDemo />
         <Info />
+        <AccordionComponent />
+        <TimeLine />
         <Footer />
       </main>
     </>
