@@ -14,10 +14,7 @@ export default function RootLayout({
   const user = useUserState((state) => state.user);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoaded(true);
-    }, 2000);
-    return () => clearTimeout(timer);
+    setLoaded(true);
   }, []);
 
   if (loaded && user.email.length) {

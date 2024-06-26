@@ -3,8 +3,9 @@ import { LoginUser } from "@/actions/http-create-user/http-login-user/HttpLoginU
 import { useToast } from "@/components/ui/use-toast";
 import { useUserState } from "@/store/user/user.store";
 import clsx from "clsx";
+import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { type ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 import { useForm } from "react-hook-form";
 
 export interface LoginFormProps {}
@@ -23,9 +24,12 @@ export function LoginForm({}: LoginFormProps): ReactElement {
   } = useForm<Inputs>();
   const setUser = useUserState((state) => state.setUser);
   const { toast } = useToast();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const onSubmit = handleSubmit(async (data) => {
+    setLoading(true);
     const { user, token, ok } = await LoginUser({ ...data });
+
     if (!ok) {
       console.log("ha ocurrido un error");
       toast({
@@ -34,10 +38,12 @@ export function LoginForm({}: LoginFormProps): ReactElement {
         description: "usuario incorrecto",
       });
       reset();
+      setLoading(false);
       return;
     }
     const { ...userInformation } = user;
     setUser({ ...userInformation, token });
+    setLoading(false);
     window.location.replace("/dashboard");
   });
 
@@ -112,8 +118,9 @@ export function LoginForm({}: LoginFormProps): ReactElement {
                   <div className="relative">
                     <button
                       type="submit"
-                      className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease cursor-pointer"
+                      className="w-full flex gap-4 justify-center pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease cursor-pointer"
                     >
+                      {loading && <Loader2 className="animate-spin" />}
                       Submit
                     </button>
                   </div>
