@@ -6,7 +6,6 @@ interface UserState {
   user: {
     username: string;
     email: string;
-    password: string;
     token: string;
   };
   setUser: (user: UserState["user"]) => void;
@@ -18,7 +17,6 @@ export const useUserState = create<UserState>()(
     (set, get) => ({
       user: {
         email: "",
-        password: "",
         token: "",
         username: "",
       },
@@ -26,7 +24,7 @@ export const useUserState = create<UserState>()(
         set({ user });
       },
       cleanUser() {
-        set({ user: { email: "", password: "", token: "", username: "" } });
+        set({ user: { email: "", token: "", username: "" } });
       },
     }),
 

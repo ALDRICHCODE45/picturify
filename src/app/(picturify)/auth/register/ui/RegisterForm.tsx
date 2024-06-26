@@ -1,9 +1,11 @@
 "use client";
 import { CreateUser } from "@/actions/http-create-user/HttpCreateUser.action";
+import { useToast } from "@/components/ui/use-toast";
 import { useUserState } from "@/store/user/user.store";
 import clsx from "clsx";
+import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { type ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 import { useForm } from "react-hook-form";
 
 export interface LoginFormProps {}
@@ -19,13 +21,30 @@ export function RegisterForm({}: LoginFormProps): ReactElement {
     formState: { errors },
     register,
     handleSubmit,
+    reset,
   } = useForm<FormInpus>();
+  const { toast } = useToast();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const setUser = useUserState((state) => state.setUser);
 
   const onSubmit = handleSubmit(async (data) => {
-    const { user, token } = await CreateUser({ ...data });
+    setLoading(true);
+    const { user, token, ok } = await CreateUser({ ...data });
+
+    if (!ok) {
+      console.log("erorr, REGISTERFORM");
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Usuario existente",
+      });
+      reset();
+      return;
+    }
+
     setUser({ ...user, token });
+    setLoading(false);
     window.location.replace("/dashboard");
   });
 
@@ -116,8 +135,9 @@ export function RegisterForm({}: LoginFormProps): ReactElement {
                   <div className="relative">
                     <button
                       type="submit"
-                      className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease cursor-pointer"
+                      className="w-full flex gap-4 justify-center pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#111827] ease cursor-pointer"
                     >
+                      {loading && <Loader2 className="animate-spin" />}
                       Submit
                     </button>
                   </div>

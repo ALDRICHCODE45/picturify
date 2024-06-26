@@ -14,16 +14,13 @@ interface Response {
 }
 
 export const LoginUser = async (body: Args): Promise<Response> => {
-  const todo = await fetch(
-    "https://picturify-backend.onrender.com/api/auth/login",
-    {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  ).then((res) => res.json());
+  const todo = await fetch("http://localhost:3000/api/auth/login", {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => res.json());
   console.log(todo);
   return todo;
 };
