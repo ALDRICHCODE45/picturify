@@ -1,4 +1,6 @@
 "use client";
+import { LoginUser } from "@/actions/http-create-user/http-login-user/HttpLoginUser.action";
+import { useToast } from "@/components/ui/use-toast";
 import { useUserState } from "@/store/user/user.store";
 import clsx from "clsx";
 import Link from "next/link";
@@ -17,12 +19,25 @@ export function LoginForm({}: LoginFormProps): ReactElement {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm<Inputs>();
   const setUser = useUserState((state) => state.setUser);
+  const { toast } = useToast();
 
-  const onSubmit = handleSubmit(async (user) => {
-    console.log(user);
-    setUser({ ...user, token: "asdfjkla", username: "aldrich" });
+  const onSubmit = handleSubmit(async (data) => {
+    const { user, token, ok } = await LoginUser({ ...data });
+    if (!ok) {
+      console.log("ha ocurrido un error");
+      toast({
+        variant: "destructive",
+        title: "ah ocurrido un error",
+        description: "usuario incorrecto",
+      });
+      reset();
+      return;
+    }
+    const { ...userInformation } = user;
+    setUser({ ...userInformation, token });
     window.location.replace("/dashboard");
   });
 

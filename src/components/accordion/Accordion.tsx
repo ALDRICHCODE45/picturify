@@ -37,7 +37,7 @@ export function AccordionComponent({}: AccordionProps): ReactElement {
                 Puedo pedir todo tipo de imagenes?
               </AccordionTrigger>
               <AccordionContent className=" font-mono text-lg">
-                Casi todo de imagenes, puedes leer nuestros{" "}
+                Casi todo tipo de imagenes, puedes leer nuestros{" "}
                 <Link href="/terms" className="underline hover:text-blue-300">
                   terminos y condiciones
                 </Link>

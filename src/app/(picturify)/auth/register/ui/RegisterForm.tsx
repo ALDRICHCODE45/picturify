@@ -1,9 +1,34 @@
+"use client";
+import { CreateUser } from "@/actions/http-create-user/HttpCreateUser.action";
+import { useUserState } from "@/store/user/user.store";
+import clsx from "clsx";
 import Link from "next/link";
 import { type ReactElement } from "react";
+import { useForm } from "react-hook-form";
 
 export interface LoginFormProps {}
 
+interface FormInpus {
+  username: string;
+  email: string;
+  password: string;
+}
+
 export function RegisterForm({}: LoginFormProps): ReactElement {
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+  } = useForm<FormInpus>();
+
+  const setUser = useUserState((state) => state.setUser);
+
+  const onSubmit = handleSubmit(async (data) => {
+    const { user, token } = await CreateUser({ ...data });
+    setUser({ ...user, token });
+    window.location.replace("/dashboard");
+  });
+
   return (
     <>
       <div className="relative ">
@@ -29,17 +54,24 @@ export function RegisterForm({}: LoginFormProps): ReactElement {
                 <p className="w-full text-4xl font-medium text-center text-black uppercase">
                   regístrate
                 </p>
-                <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
+                <form
+                  onSubmit={onSubmit}
+                  className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8"
+                >
                   <div className="relative">
                     <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">
                       Correo
                     </p>
                     <input
+                      {...register("email", { required: true })}
                       placeholder="correo@gmail.com"
                       type="text"
-                      className="border placeholder-gray-400 focus:outline-none
-                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black  dark:text-black block bg-white
-                  border-gray-300 rounded-md"
+                      className={clsx(
+                        "border placeholder-gray-400 focus:outline-none  w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white border-gray-300 rounded-md",
+                        {
+                          "border-red-500": !!errors.email,
+                        }
+                      )}
                     />
                   </div>
                   <div className="relative">
@@ -50,11 +82,15 @@ export function RegisterForm({}: LoginFormProps): ReactElement {
                       Contrasena
                     </p>
                     <input
+                      {...register("password", { required: true })}
                       placeholder="*****"
                       type="password"
-                      className="border placeholder-gray-400 focus:outline-none
-                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white
-                  border-gray-300 rounded-md"
+                      className={clsx(
+                        "border placeholder-gray-400 focus:outline-none  w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white border-gray-300 rounded-md",
+                        {
+                          "border-red-500": !!errors.password,
+                        }
+                      )}
                     />
                   </div>
 
@@ -66,19 +102,26 @@ export function RegisterForm({}: LoginFormProps): ReactElement {
                       Usuario
                     </p>
                     <input
+                      {...register("username", { required: true })}
                       placeholder="Jhon"
                       type="text"
-                      className="border placeholder-gray-400 focus:outline-none
-                  focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white
-                  border-gray-300 rounded-md"
+                      className={clsx(
+                        "border placeholder-gray-400 focus:outline-none  w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-black block bg-white border-gray-300 rounded-md",
+                        {
+                          "border-red-500": !!errors.username,
+                        }
+                      )}
                     />
                   </div>
                   <div className="relative">
-                    <a className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease cursor-pointer">
+                    <button
+                      type="submit"
+                      className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-primary rounded-lg transition duration-200 hover:bg-[#020817] ease cursor-pointer"
+                    >
                       Submit
-                    </a>
+                    </button>
                   </div>
-                </div>
+                </form>
                 <p className="pt-2 text-black">
                   Ya tienes una cuenta?{" "}
                   <Link

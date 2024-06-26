@@ -26,7 +26,7 @@ export default function notFound({}: notFoundProps): ReactElement {
             href="/home"
             className="mt-6 inline-block rounded bg-primary px-5 py-3 text-sm font-medium text-white  focus:outline-none focus:ring"
           >
-            Go Back Home
+            Ir al inicio
           </Link>
         </div>
       </div>

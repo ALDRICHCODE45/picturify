@@ -1,6 +1,7 @@
 "use client";
 import { DashboardNavbar } from "@/components/dasboard-navbar/DashboardNavbar";
 import { DashboardSidebar } from "@/components/dashboard-sidebar/DashboardSideBar";
+import Loading from "@/components/loading/Loading";
 import { useUserState } from "@/store/user/user.store";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -19,7 +20,10 @@ export default function DashboardLayout({
   const user = useUserState((state) => state.user);
 
   useEffect(() => {
-    setLoaded(true);
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   if (loaded && !user.email.length) {
@@ -27,7 +31,7 @@ export default function DashboardLayout({
   }
 
   if (!loaded) {
-    return <p>wait...</p>;
+    return <Loading />;
   }
 
   return (
@@ -42,7 +46,7 @@ export default function DashboardLayout({
         >
           <main>
             <div className="pt-6 px-4">
-              <div className="bg-white dark:bg-[#020817] shadow rounded-lg p-4 sm:p-6 xl:p-8  h-[800px]">
+              <div className="bg-white dark:bg-[#020817] shadow rounded-lg p-4 sm:p-6 xl:p-8  h-[850px]">
                 {children}
               </div>
             </div>

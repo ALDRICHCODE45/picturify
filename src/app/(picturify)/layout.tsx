@@ -1,4 +1,5 @@
 import { Navbar } from "@/components";
+import { Toaster } from "@/components/ui/toaster";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <main className="" suppressHydrationWarning>
+      <Toaster />
       <Navbar />
       {children}
     </main>
