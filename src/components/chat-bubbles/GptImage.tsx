@@ -1,11 +1,12 @@
+import Image from "next/image";
 import { type ReactElement } from "react";
-import Markdown from "react-markdown";
 
 export interface GptMessageProps {
-  text: string;
+  image: string;
+  text?: string;
 }
 
-export function GptMessage({ text }: GptMessageProps): ReactElement {
+export function GptImage({ image, text }: GptMessageProps): ReactElement {
   return (
     <div className="col-start-1 col-end-8 p-3 rounded-lg">
       <div className="flex flex-row items-start">
@@ -13,7 +14,13 @@ export function GptMessage({ text }: GptMessageProps): ReactElement {
           P
         </div>
         <div className="relative ml-3 text-sm bg-[#eff6ff] pt-3 pb-2 px-4 shadow rounded-xl">
-          <Markdown className="text-black">{text}</Markdown>
+          <Image
+            src={image}
+            alt="image"
+            className="mt-2 rounded-xl w-96 h-96 object-cover"
+            width={500}
+            height={500}
+          />
         </div>
       </div>
     </div>

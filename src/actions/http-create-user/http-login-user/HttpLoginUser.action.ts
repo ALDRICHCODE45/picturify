@@ -14,7 +14,7 @@ interface Response {
 }
 
 export const LoginUser = async (body: Args): Promise<Response> => {
-  const todo = await fetch("http://localhost:3000/api/auth/login", {
+  const todo = await fetch(`http://localhost:3002/api/auth/login`, {
     method: "POST",
     body: JSON.stringify(body),
     headers: {
@@ -24,3 +24,4 @@ export const LoginUser = async (body: Args): Promise<Response> => {
   console.log(todo);
   return todo;
 };
+``;
