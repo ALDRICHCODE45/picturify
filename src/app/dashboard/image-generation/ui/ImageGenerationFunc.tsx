@@ -7,6 +7,7 @@ import { MyMessage } from "@/components/chat-bubbles/MyMessage";
 import { TypingLoader } from "@/components/loaders/TypingLoader";
 import { TextMessageBox } from "@/components/text-messages/TextMessageBox";
 import { useUserState } from "@/store/user/user.store";
+import { useAuth } from "@/app/(picturify)/auth/hooks/useAuth";
 
 interface Message {
   text: string;
@@ -19,8 +20,8 @@ const fetchMessages = async (token: string) => {
     `http://localhost:3002/api/picturify/get-messages`,
     {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+        authorization: `bearer ${token}`,
       },
     }
   );
@@ -30,18 +31,21 @@ const fetchMessages = async (token: string) => {
 
 export default function GenerationImage(): ReactElement {
   const user = useUserState((state) => state.user);
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { checkingToken } = useAuth();
   const messagesEndRef = useRef<HTMLDivElement>(null); // Reference to the end of messages container
 
   useEffect(() => {
+    checkingToken();
     const getMessages = async () => {
       const initialMessages = await fetchMessages(user.token);
       setMessages(initialMessages);
       scrollToBottom(); // Scroll to bottom after messages load initially
     };
     getMessages();
-  }, [user?.token]);
+  }, []);
 
   useEffect(() => {
     scrollToBottom(); // Scroll to bottom whenever messages state changes
@@ -82,7 +86,7 @@ export default function GenerationImage(): ReactElement {
         <div className="grid grid-cols-12 gap-y-2">
           <GptMessage text="Hola, puedes pedirme cualquier tipo de imagen y yo te la daré" />
 
-          {messages.map((message, index) =>
+          {messages?.map((message, index) =>
             message.isPicturify ? (
               message.Image ? (
                 <GptImage

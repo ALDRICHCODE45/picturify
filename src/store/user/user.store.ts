@@ -10,6 +10,7 @@ interface UserState {
   };
   setUser: (user: UserState["user"]) => void;
   cleanUser: () => void;
+  renewToken: (newtoken: string) => void;
 }
 
 export const useUserState = create<UserState>()(
@@ -25,6 +26,10 @@ export const useUserState = create<UserState>()(
       },
       cleanUser() {
         set({ user: { email: "", token: "", username: "" } });
+      },
+      renewToken(newtoken) {
+        const user = get().user;
+        set({ user: { ...user, token: newtoken } });
       },
     }),
 
