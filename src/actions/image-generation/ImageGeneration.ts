@@ -1,6 +1,6 @@
 export const ImageGenerationUseCase = async (prompt: string, token: string) => {
   const response = await fetch(
-    `http://localhost:3002/api/picturify/image-generation`,
+    `https://picturify-backend.onrender.com/api/picturify/image-generation`,
 
     {
       method: "POST",
