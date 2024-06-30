@@ -17,7 +17,7 @@ interface Message {
 
 const fetchMessages = async (token: string) => {
   const response = await fetch(
-    `http://localhost:3002/api/picturify/get-messages`,
+    `https://picturify.onrender.com/api/picturify/get-messages`,
     {
       headers: {
         "content-type": "application/json",

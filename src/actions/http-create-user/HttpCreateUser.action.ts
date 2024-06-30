@@ -17,7 +17,7 @@ interface Response {
 export const CreateUser = async (
   body: ApiUserCratedResponse
 ): Promise<Response> => {
-  const todo = await fetch(`http://localhost:3002/api/auth/register`, {
+  const todo = await fetch(`https://picturify.onrender.com/api/auth/register`, {
     method: "POST",
     body: JSON.stringify(body),
     headers: {
