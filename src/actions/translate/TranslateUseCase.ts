@@ -4,7 +4,7 @@ export const TranslateUseCase = async (
   token: string
 ) => {
   const response = await fetch(
-    `https://picturify-backend.onrender.com/api/picturify/translate`,
+    `https://picturify.onrender.com/api/picturify/translate`,
 
     {
       method: "POST",
