@@ -55,7 +55,7 @@ export function TextMessageBoxSelect({
             />
             <select
               name="select"
-              className="w-2/5 ml-5 border rounded-xl text-black dark:text-white focus:outline-none focus:border-primary pl-4 h-10"
+              className="w-2/5 ml-5 bg-[#efefef] dark:bg-[#020817] border rounded-xl text-black dark:text-white focus:outline-none focus:border-primary pl-4 h-10"
               value={selectedOption}
               onChange={(e) => setSelectedLang(e.target.value)}
             >

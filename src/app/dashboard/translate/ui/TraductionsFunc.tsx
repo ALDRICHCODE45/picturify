@@ -3,7 +3,6 @@ import React, { ReactElement, useState, useEffect, useRef } from "react";
 import { GptMessage } from "@/components/chat-bubbles/GptMessage";
 import { MyMessage } from "@/components/chat-bubbles/MyMessage";
 import { TypingLoader } from "@/components/loaders/TypingLoader";
-import { TextMessageBox } from "@/components/text-messages/TextMessageBox";
 import { useUserState } from "@/store/user/user.store";
 import { useAuth } from "@/app/(picturify)/auth/hooks/useAuth";
 import { TranslateUseCase } from "@/actions/translate/TranslateUseCase";
@@ -35,6 +34,7 @@ export function TransLateFunc(): ReactElement {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { checkingToken } = useAuth();
+
   const messagesEndRef = useRef<HTMLDivElement>(null); // Reference to the end of messages container
 
   useEffect(() => {
