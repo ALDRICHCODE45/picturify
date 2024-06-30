@@ -12,15 +12,12 @@ export const useAuth = () => {
       return;
     }
 
-    const response = await fetch(
-      `https://picturify-backend.onrender.com/api/auth/renew-token`,
-      {
-        headers: {
-          "content-type": "application/json",
-          authorization: `bearer ${user.token}`,
-        },
-      }
-    );
+    const response = await fetch(`http://localhost:3002/api/auth/renew-token`, {
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${user.token}`,
+      },
+    });
 
     const resp = await response.json();
 

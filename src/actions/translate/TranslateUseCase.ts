@@ -1,6 +1,10 @@
-export const ImageGenerationUseCase = async (prompt: string, token: string) => {
+export const TranslateUseCase = async (
+  prompt: string,
+  lang: string,
+  token: string
+) => {
   const response = await fetch(
-    `http://localhost:3002/api/picturify/image-generation`,
+    `http://localhost:3002/api/picturify/translate`,
 
     {
       method: "POST",
@@ -8,7 +12,7 @@ export const ImageGenerationUseCase = async (prompt: string, token: string) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ prompt }),
+      body: JSON.stringify({ prompt, lang }),
     }
   );
   const resp = await response.json();

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const links = [
   { name: "generar imagen", href: "/dashboard/image-generation" },
-  { name: "traduccion", href: "/dashboard/image-edition" },
+  { name: "translate", href: "/dashboard/translate" },
 ];
 
 export default function DashboardLayout({
