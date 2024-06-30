@@ -42,8 +42,8 @@ export function UserDropDown({ image }: UserDropDownProps): ReactElement {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link className="w-full" href="/dashboard/image-edition">
-            Editar Imagen
+          <Link className="w-full" href="/dashboard/translate">
+            Traducir
           </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
