@@ -46,7 +46,7 @@ export function TextMessageBoxSelect({
               placeholder={placeholder}
               autoFocus
               name="message"
-              className="text-gray-800 w-full focus:outline-none  focus:border-indigo-300 pl-4 h-10"
+              className="text-black dark:text-white w-full focus:outline-none  focus:border-indigo-300 pl-4 h-10"
               autoComplete={disableCorrections ? "off" : "on"}
               autoCorrect={disableCorrections ? "off" : "on"}
               spellCheck={disableCorrections ? "true" : "false"}
@@ -55,7 +55,7 @@ export function TextMessageBoxSelect({
             />
             <select
               name="select"
-              className="w-2/5 ml-5 border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10"
+              className="w-2/5 ml-5 border rounded-xl text-black dark:text-white focus:outline-none focus:border-primary pl-4 h-10"
               value={selectedOption}
               onChange={(e) => setSelectedLang(e.target.value)}
             >
