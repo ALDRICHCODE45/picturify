@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { TransLateFunc } from "./ui/TraductionsFunc";
 
-export const metadat: Metadata = {
+export const metadata: Metadata = {
   title: "Picturify - Translate",
 };
 
