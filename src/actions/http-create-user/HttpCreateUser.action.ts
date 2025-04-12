@@ -15,15 +15,18 @@ interface Response {
 }
 
 export const CreateUser = async (
-  body: ApiUserCratedResponse
+  body: ApiUserCratedResponse,
 ): Promise<Response> => {
-  const todo = await fetch(`https://picturify.onrender.com/api/auth/register`, {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
+  const todo = await fetch(
+    `https://picturify-backend-production.up.railway.app/api/auth/register`,
+    {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
-  }).then((res) => res.json());
+  ).then((res) => res.json());
   console.log(todo);
   return todo;
 };

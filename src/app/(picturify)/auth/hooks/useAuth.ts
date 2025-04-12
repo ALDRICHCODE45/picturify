@@ -13,13 +13,13 @@ export const useAuth = () => {
     }
 
     const response = await fetch(
-      `https://picturify.onrender.com/api/auth/renew-token`,
+      `https://picturify-backend-production.up.railway.app/api/auth/renew-token`,
       {
         headers: {
           "content-type": "application/json",
           authorization: `bearer ${user.token}`,
         },
-      }
+      },
     );
 
     const resp = await response.json();

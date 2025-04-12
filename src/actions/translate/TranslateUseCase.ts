@@ -1,10 +1,10 @@
 export const TranslateUseCase = async (
   prompt: string,
   lang: string,
-  token: string
+  token: string,
 ) => {
   const response = await fetch(
-    `https://picturify.onrender.com/api/picturify/translate`,
+    `https://picturify-backend-production.up.railway.app/api/picturify/translate`,
 
     {
       method: "POST",
@@ -13,7 +13,7 @@ export const TranslateUseCase = async (
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ prompt, lang }),
-    }
+    },
   );
   const resp = await response.json();
   console.log(resp);

@@ -1,6 +1,6 @@
 export const ImageGenerationUseCase = async (prompt: string, token: string) => {
   const response = await fetch(
-    `https://picturify.onrender.com/api/picturify/image-generation`,
+    `https://picturify-backend-production.up.railway.app/api/picturify/image-generation`,
 
     {
       method: "POST",
@@ -9,7 +9,7 @@ export const ImageGenerationUseCase = async (prompt: string, token: string) => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ prompt }),
-    }
+    },
   );
   const resp = await response.json();
   console.log(resp);

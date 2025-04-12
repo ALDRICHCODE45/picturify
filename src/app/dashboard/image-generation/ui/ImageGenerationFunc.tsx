@@ -17,13 +17,13 @@ interface Message {
 
 const fetchMessages = async (token: string) => {
   const response = await fetch(
-    `https://picturify.onrender.com/api/picturify/get-messages`,
+    `https://picturify-backend-production.up.railway.app/api/picturify/get-messages`,
     {
       headers: {
         "content-type": "application/json",
         authorization: `bearer ${token}`,
       },
-    }
+    },
   );
   const resp = await response.json();
   return resp.messages;
@@ -104,7 +104,7 @@ export default function GenerationImage(): ReactElement {
               )
             ) : (
               <MyMessage text={message.text} key={index} />
-            )
+            ),
           )}
 
           {isLoading && <TypingLoader />}
